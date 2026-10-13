@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Dude - Mini Movie Pals",
+  "version": "2.1.0",
+  "description": "Tiny movie-character pals that wander your browser, chat in 60+ styles, track your screen time and nudge you to rest.",
+  "permissions": ["storage", "alarms", "idle", "tabs", "notifications"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Show / hide Dude and friends" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["characters.js", "styles.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" }
+}
